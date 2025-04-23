@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import PricingToggle from "./PricingToggle";
 import PlanCard from "./PlanCard";
@@ -19,7 +18,7 @@ const plans = [
     highlights: [
       "Essential SEDDI Textura features",
       "Generate, store & download up to 15 materials/month",
-      "We have the right to use your generated materials in our public library for all free users of Textura"
+      "All materials may be published in Texturas public library"
     ],
     descriptions: [
       "Basic tier of SEDDI Textura's toolset",
@@ -132,4 +131,3 @@ const PricingTable = () => {
 };
 
 export default PricingTable;
-
