@@ -17,15 +17,16 @@ const plans = [
     button: "Start Free",
     btnClass: "bg-[#01ccc7] text-white hover:bg-[#00a8a4] active:animate-button-press",
     highlights: [
+      "Essential SEDDI Textura features",
       "Generate, store & download up to 15 materials/month",
-      "Materials are shared in public library",
-      "Essential SEDDI Textura features"
+      "All materials may be published in SEDDI's public library"
     ],
     descriptions: [
-      "Limited monthly material generation with basic features",
-      "All materials you create will be visible to other users",
-      "Access to fundamental tools and features"
+      "Basic tier of SEDDI Textura's toolset",
+      "Limited monthly material generation",
+      "Materials shared in public library"
     ],
+    ctaUrl: "https://app.textura.ai/login",
     isPopular: false
   },
   {
@@ -39,17 +40,20 @@ const plans = [
     button: "Upgrade to Standard",
     btnClass: "bg-[#01ccc7] text-white hover:bg-[#00a8a4] active:animate-button-press",
     highlights: [
+      "Essential SEDDI Textura features",
       "Unlimited material generation",
-      "Store up to 100 materials privately",
-      "All Free plan features included",
+      "Store up to 500 materials",
+      "Private SEDDI Textura library",
       "Priority support"
     ],
     descriptions: [
-      "Create as many materials as you need with no monthly limits",
-      "Keep your designs private and secure in your personal library",
-      "Access to all features in the Free tier",
-      "Get faster responses and dedicated help from our team"
+      "Full feature set for advanced material creation",
+      "No limits on material generation",
+      "Expanded private storage capacity",
+      "Exclusive private material library",
+      "Faster, dedicated support response"
     ],
+    ctaUrl: "https://app.textura.ai/login",
     isPopular: false
   },
   {
@@ -63,23 +67,24 @@ const plans = [
     button: "Contact Sales",
     btnClass: "bg-[#01ccc7] text-white hover:bg-[#00a8a4] border-2 border-[#01ccc7]/50 active:animate-button-press",
     highlights: [
-      "All points in Standard +",
-      "Team folders for sharing your collections internally and externally",
-      "Batch upload from previous CLO, or Vizoo files", 
-      "Advanced recoloring tools like Heather",
-      "Supplier/Tiling team connections",
+      "Essential SEDDI Textura features",
+      "Personalized team folders to enhance workspace collaboration",
+      "Batch upload fabric scans and digital materials",
+      "Advanced recoloring - Heather fabric tools",
+      "Supplier/tiling team collections",
       "Store up to 2000 materials",
       "Dedicated account manager"
     ],
     descriptions: [
-      "Everything in the Standard plan plus enterprise features",
-      "Collaborate and share material collections with internal and external teams",
-      "Easily transfer materials from CLO and Vizoo platforms",
-      "Access our most advanced color manipulation tools inspired by Heather technology",
-      "Connect directly with suppliers and specialized tiling teams", 
-      "Extensive storage for your entire material library",
-      "Get personalized support from a dedicated account representative"
+      "Comprehensive enterprise-level material management",
+      "Collaborative workspace with custom team organization",
+      "Automated batch upload process for importing existing digital materials into the Textura library",
+      "Advanced color manipulation with specialized Heather fabric tools",
+      "Easily connect with your global suppliers to receive fabric scans reducing the need for physical sample shipments. Assign fabrics directly to your tiling teams and suppliers for collaboration",
+      "Extensive material library storage",
+      "Personalized support with a dedicated account representative"
     ],
+    ctaUrl: "https://meetings.hubspot.com/sam-j/enterprise-pricing-page-link",
     isPopular: true
   }
 ];
@@ -92,32 +97,8 @@ const PricingTable = () => {
     setSelectedPlan(tier);
   };
 
-  const handlePlanAction = (tier: string) => {
-    if (tier === "Free") {
-      toast.success("Getting started with Free plan", {
-        description: "You're all set to begin using SEDDI Textura",
-        action: {
-          label: "View Dashboard",
-          onClick: () => console.log("View Dashboard clicked")
-        }
-      });
-    } else if (tier === "Standard") {
-      toast.success("Upgrading to Standard plan", {
-        description: "Redirecting to payment page...",
-        action: {
-          label: "Check Features",
-          onClick: () => console.log("Check Features clicked")
-        }
-      });
-    } else {
-      toast.info("Contact request submitted", {
-        description: "Our sales team will reach out to you shortly",
-        action: {
-          label: "Learn More",
-          onClick: () => console.log("Learn More clicked")
-        }
-      });
-    }
+  const handlePlanAction = (tier: string, ctaUrl: string) => {
+    window.location.href = ctaUrl;
   };
 
   return (
@@ -126,7 +107,7 @@ const PricingTable = () => {
         <span className="text-xs text-gray-600 mb-1">*All prices in USD</span>
         <PricingToggle annual={annual} setAnnual={setAnnual} />
         {annual && (
-          <span className="mt-2 text-sm font-medium text-purple-600 flex items-center gap-1 bg-purple-50 px-3 py-1 rounded-full">
+          <span className="mt-2 text-sm font-medium text-[#01ccc7] flex items-center gap-1 bg-[#01ccc7]/10 px-3 py-1 rounded-full">
             Save <span className="mx-1 font-bold">2 months</span> with annual billing
           </span>
         )}
@@ -140,7 +121,7 @@ const PricingTable = () => {
             delay={idx * 100}
             isSelected={selectedPlan === plan.tier}
             onSelect={handlePlanSelect}
-            onAction={() => handlePlanAction(plan.tier)}
+            onAction={() => handlePlanAction(plan.tier, plan.ctaUrl)}
           />
         ))}
       </div>
@@ -151,3 +132,4 @@ const PricingTable = () => {
 };
 
 export default PricingTable;
+

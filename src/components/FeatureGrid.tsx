@@ -1,4 +1,3 @@
-
 import { 
   Users, 
   Folder, 
@@ -65,8 +64,8 @@ const featureColumns = [
     },
     {
       icon: FolderOpen,
-      text: "Export ZIP & SBSAR, U3MA",
-      description: "Export materials in multiple industry-standard formats"
+      text: "Export Materials in Multiple Industry-Standard Formats",
+      description: "ZIP, SBSAR, U3MA, GLTF"
     },
     {
       icon: Headset,
