@@ -51,6 +51,7 @@ const plans = [
     button: "Contact Sales",
     btnClass: "bg-[#1A1F2C] text-white hover:bg-[#333] border-2 border-[#1A1F2C]",
     highlights: [
+      "All points in Standard +", // New first point
       "Team folders for sharing collections",
       "Batch upload & mill integrations",
       "Advanced recoloring tools",
