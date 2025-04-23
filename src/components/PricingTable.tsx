@@ -31,13 +31,13 @@ const plans = [
   {
     tier: "Standard",
     color: "#fff",
-    bg: "bg-gradient-to-br from-[#F1F0FB] to-[#E5DEFF]",
-    border: "border-[#9b87f5]",
+    bg: "bg-gradient-to-br from-white/90 via-gray-100/90 to-gray-200/90",
+    border: "border-gray-300",
     title: "Standard",
     priceMonth: 500,
     priceAnnual: 500 * 10, // 2 months free
     button: "Upgrade to Standard",
-    btnClass: "bg-[#9b87f5] text-white hover:bg-[#7E69AB] active:animate-button-press",
+    btnClass: "bg-[#1A1F2C] text-white hover:bg-[#333] active:animate-button-press",
     highlights: [
       "Unlimited material generation",
       "Store up to 100 materials privately",
@@ -55,8 +55,8 @@ const plans = [
   {
     tier: "Enterprise",
     color: "#fff",
-    bg: "bg-gradient-to-br from-white/90 via-gray-100/90 to-gray-200/90",
-    border: "border-gray-300",
+    bg: "bg-gradient-to-br from-[#F1F0FB] to-[#E5DEFF]",
+    border: "border-[#9b87f5]",
     title: "Enterprise",
     priceMonth: 800,
     priceAnnual: 800 * 10, // 2 months free
@@ -65,7 +65,7 @@ const plans = [
     highlights: [
       "All points in Standard +",
       "Team folders for sharing your collections internally and externally",
-      "Batch upload from previous CLO, or Vizoo files",
+      "Batch upload from previous CLO, or Vizoo files", 
       "Advanced recoloring tools like Heather",
       "Supplier/Tiling team connections",
       "Store up to 2000 materials",
