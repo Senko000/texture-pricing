@@ -19,7 +19,7 @@ const plans = [
     highlights: [
       "Essential SEDDI Textura features",
       "Generate, store & download up to 15 materials/month",
-      "All materials may be published in SEDDI's public library"
+      "We have the right to use your generated materials in our public library for all free users of Textura"
     ],
     descriptions: [
       "Basic tier of SEDDI Textura's toolset",
