@@ -97,12 +97,12 @@ const FeatureGrid = () => {
                     <div 
                       className={cn(
                         "flex items-start gap-3 p-3 rounded-lg transition-all duration-200",
-                        hoveredFeature === `${i}-${j}` ? "bg-[#9b87f5]/10 shadow-sm" : "hover:bg-[#9b87f5]/5"
+                        hoveredFeature === `${i}-${j}` ? "bg-[#01ccc7]/10 shadow-sm" : "hover:bg-[#01ccc7]/5"
                       )}
                       onMouseEnter={() => setHoveredFeature(`${i}-${j}`)}
                       onMouseLeave={() => setHoveredFeature(null)}
                     >
-                      <div className="bg-gradient-to-br from-[#9b87f5] to-[#7E69AB] p-2 rounded-lg shadow-lg">
+                      <div className="bg-gradient-to-br from-[#01ccc7]/80 to-[#01ccc7]/60 p-2 rounded-lg shadow-lg">
                         <f.icon className="w-5 h-5 text-white" />
                       </div>
                       <div>
@@ -112,7 +112,7 @@ const FeatureGrid = () => {
                     </div>
                   </TooltipTrigger>
                   <TooltipContent
-                    className="bg-[#1A1F2C] text-white border-[#9b87f5] shadow-[0_8px_16px_0_rgba(155,135,245,0.25)]"
+                    className="bg-[#1A1F2C] text-white border-[#01ccc7]/50 shadow-[0_8px_16px_0_rgba(1,204,199,0.25)]"
                   >
                     {f.description}
                   </TooltipContent>
