@@ -1,5 +1,8 @@
 
-import { Check, Users, DollarSign } from "lucide-react";
+import { Check, Users } from "lucide-react";
+import { useState } from "react";
+import FeatureDetail from "./FeatureDetail";
+import { cn } from "@/lib/utils";
 
 type Plan = {
   tier: string;
@@ -12,38 +15,69 @@ type Plan = {
   button: string;
   btnClass: string;
   highlights: string[];
+  descriptions?: string[];
   isPopular: boolean;
 };
 
 const PlanCard = ({
   plan,
   annual,
-  delay
+  delay,
+  isSelected = false,
+  onSelect,
+  onAction
 }: {
   plan: Plan;
   annual: boolean;
   delay: number;
+  isSelected?: boolean;
+  onSelect?: (tier: string) => void;
+  onAction?: () => void;
 }) => {
-  const { title, priceMonth, priceAnnual, button, btnClass, highlights, bg, border, isPopular, tier } = plan;
+  const { 
+    title, 
+    priceMonth, 
+    priceAnnual, 
+    button, 
+    btnClass, 
+    highlights, 
+    descriptions = [], 
+    bg, 
+    border, 
+    isPopular, 
+    tier 
+  } = plan;
+  
+  const [hovering, setHovering] = useState(false);
 
   return (
     <div
-      className={`rounded-2xl shadow-lg border ${border} ${bg} flex flex-col items-center px-6 py-8 relative transition group`}
+      className={cn(
+        "rounded-2xl border-2 backdrop-blur-lg flex flex-col items-center px-6 py-8 relative transition-all duration-300 group",
+        border,
+        bg,
+        hovering || isSelected ? "shadow-[0_15px_35px_0_rgba(155,135,245,0.25)] scale-[1.02] z-10" : "shadow-lg",
+        isSelected ? "ring-2 ring-[#9b87f5]" : "",
+        isPopular && isSelected ? "animate-card-glow" : ""
+      )}
       style={{
         animation: `fadeInUp 0.7s cubic-bezier(.47,1.64,.41,.8) both`,
         animationDelay: `${delay}ms`
       }}
+      onClick={() => onSelect?.(tier)}
+      onMouseEnter={() => setHovering(true)}
+      onMouseLeave={() => setHovering(false)}
     >
       {/* Popular badge */}
       {isPopular && (
-        <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#9b87f5] text-white text-xs px-4 py-1 rounded-full font-semibold shadow">
+        <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#9b87f5] to-[#7E69AB] text-white text-xs px-4 py-1 rounded-full font-semibold shadow-lg animate-pulse">
           Most Popular
         </div>
       )}
-      <h2 className="font-bold text-lg uppercase tracking-widest text-center mb-2">{title}</h2>
+      <h2 className="font-playfair font-bold text-2xl uppercase tracking-wider text-center mb-2">{title}</h2>
       <div className="flex flex-col items-center mt-1 mb-4">
         <span className="flex items-end">
-          <span className="text-3xl md:text-4xl font-extrabold text-[#1A1F2C]">${annual ? priceAnnual : priceMonth}</span>
+          <span className="text-4xl md:text-5xl font-extrabold text-[#1A1F2C] font-sans">${annual ? priceAnnual : priceMonth}</span>
           <span className="ml-1 text-base text-gray-700 font-medium">
             /{annual ? "year" : "month"}
           </span>
@@ -52,20 +86,45 @@ const PlanCard = ({
           <span className="text-xs text-gray-500 mt-1 font-medium">No credit card required</span>
         )}
       </div>
-      <ul className="w-full mb-6 flex-1 flex flex-col gap-3">
+      <ul className="w-full mb-6 flex-1 flex flex-col gap-4">
         {highlights.map((item, idx) => (
           <li
             className="flex items-start gap-2 text-gray-800 text-sm"
             key={idx}
           >
-            <Check className="w-4 h-4 text-[#9b87f5] mt-1 shrink-0" />
-            <span>{item}</span>
+            {descriptions[idx] ? (
+              <FeatureDetail
+                title={item}
+                description={descriptions[idx]}
+              >
+                <div className="flex items-start gap-2">
+                  <div className="w-5 h-5 rounded-full bg-[#9b87f5]/10 flex items-center justify-center mt-0.5">
+                    <Check className="w-3 h-3 text-[#9b87f5]" />
+                  </div>
+                  <span>{item}</span>
+                </div>
+              </FeatureDetail>
+            ) : (
+              <div className="flex items-start gap-2">
+                <div className="w-5 h-5 rounded-full bg-[#9b87f5]/10 flex items-center justify-center mt-0.5">
+                  <Check className="w-3 h-3 text-[#9b87f5]" />
+                </div>
+                <span>{item}</span>
+              </div>
+            )}
           </li>
         ))}
       </ul>
       <button
-        className={`w-full mt-auto font-semibold rounded-lg py-3 text-base transition text-center ${btnClass} focus:outline-none`}
-        tabIndex={0}
+        className={cn(
+          "w-full mt-auto font-semibold rounded-lg py-3 text-base transition-all duration-300 text-center",
+          btnClass,
+          "hover:shadow-[0_8px_16px_0_rgba(155,135,245,0.25)] hover:scale-105 focus:outline-none"
+        )}
+        onClick={(e) => {
+          e.stopPropagation();
+          onAction?.();
+        }}
         aria-label={button}
       >
         {button}

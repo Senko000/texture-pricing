@@ -3,55 +3,67 @@ import { useState } from "react";
 import PricingToggle from "./PricingToggle";
 import PlanCard from "./PlanCard";
 import FeatureGrid from "./FeatureGrid";
+import { toast } from "sonner";
 
 const plans = [
   {
     tier: "Free",
     color: "#333",
-    bg: "bg-white",
+    bg: "bg-gradient-to-br from-white to-gray-100",
     border: "border-gray-200",
     title: "Free",
     priceMonth: 0,
     priceAnnual: 0,
     button: "Start Free",
-    btnClass: "bg-[#1A1F2C] text-white hover:bg-[#9b87f5]",
+    btnClass: "bg-[#1A1F2C] text-white hover:bg-[#333] active:animate-button-press",
     highlights: [
       "Generate, store & download up to 15 materials/month",
       "Materials are shared in public library",
       "Essential SEDDI Textura features"
+    ],
+    descriptions: [
+      "Limited monthly material generation with basic features",
+      "All materials you create will be visible to other users",
+      "Access to fundamental tools and features"
     ],
     isPopular: false
   },
   {
     tier: "Standard",
     color: "#fff",
-    bg: "bg-[#F1F0FB]",
+    bg: "bg-gradient-to-br from-[#F1F0FB] to-[#E5DEFF]",
     border: "border-[#9b87f5]",
     title: "Standard",
     priceMonth: 500,
     priceAnnual: 500 * 10, // 2 months free
     button: "Upgrade to Standard",
-    btnClass: "bg-[#9b87f5] text-white hover:bg-[#7E69AB]",
+    btnClass: "bg-[#9b87f5] text-white hover:bg-[#7E69AB] active:animate-button-press",
     highlights: [
       "Unlimited material generation",
       "Store up to 100 materials privately",
       "All Free plan features included",
       "Priority support"
     ],
+    descriptions: [
+      "Create as many materials as you need with no monthly limits",
+      "Keep your designs private and secure in your personal library",
+      "Access to all features in the Free tier",
+      "Get faster responses and dedicated help from our team"
+    ],
     isPopular: true
   },
   {
     tier: "Enterprise",
     color: "#fff",
-    bg: "bg-[#E5DEFF]",
+    bg: "bg-gradient-to-br from-[#1A1F2C] via-[#442f6e] to-[#9b87f5]",
     border: "border-[#1A1F2C]",
     title: "Enterprise",
     priceMonth: 800,
     priceAnnual: 800 * 10, // 2 months free
     button: "Contact Sales",
-    btnClass: "bg-[#1A1F2C] text-white hover:bg-[#333] border-2 border-[#1A1F2C]",
+    btnClass: "bg-gradient-to-r from-[#9b87f5] to-[#7E69AB] text-white hover:from-[#7E69AB] hover:to-[#9b87f5] border-2 border-white/30 active:animate-button-press",
     highlights: [
-      "All points in Standard +", // New first point
+      "All points in Standard +",
       "Team folders for sharing collections",
       "Batch upload & mill integrations",
       "Advanced recoloring tools",
@@ -59,12 +71,54 @@ const plans = [
       "Store up to 2000 materials",
       "Dedicated account manager"
     ],
+    descriptions: [
+      "Everything in the Standard plan plus enterprise features",
+      "Collaborate with your team through shared material collections",
+      "Upload multiple materials at once and integrate with mill systems",
+      "Access to our most powerful color manipulation tools",
+      "Connect directly with suppliers and specialized tiling teams",
+      "Extensive storage for your entire material library",
+      "Get personalized support from a dedicated account representative"
+    ],
     isPopular: false
   }
 ];
 
 const PricingTable = () => {
   const [annual, setAnnual] = useState(false);
+  const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
+
+  const handlePlanSelect = (tier: string) => {
+    setSelectedPlan(tier);
+  };
+
+  const handlePlanAction = (tier: string) => {
+    if (tier === "Free") {
+      toast.success("Getting started with Free plan", {
+        description: "You're all set to begin using SEDDI Textura",
+        action: {
+          label: "View Dashboard",
+          onClick: () => console.log("View Dashboard clicked")
+        }
+      });
+    } else if (tier === "Standard") {
+      toast.success("Upgrading to Standard plan", {
+        description: "Redirecting to payment page...",
+        action: {
+          label: "Check Features",
+          onClick: () => console.log("Check Features clicked")
+        }
+      });
+    } else {
+      toast.info("Contact request submitted", {
+        description: "Our sales team will reach out to you shortly",
+        action: {
+          label: "Learn More",
+          onClick: () => console.log("Learn More clicked")
+        }
+      });
+    }
+  };
 
   return (
     <section>
@@ -84,6 +138,9 @@ const PricingTable = () => {
             plan={plan}
             annual={annual}
             delay={idx * 100}
+            isSelected={selectedPlan === plan.tier}
+            onSelect={handlePlanSelect}
+            onAction={() => handlePlanAction(plan.tier)}
           />
         ))}
       </div>

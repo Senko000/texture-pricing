@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -18,6 +19,39 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				sans: ['Inter', 'sans-serif'],
+				playfair: ['Playfair Display', 'serif'],
+			},
+			keyframes: {
+				"accordion-down": {
+					from: { height: '0' },
+					to: { height: 'var(--radix-accordion-content-height)' },
+				},
+				"accordion-up": {
+					from: { height: 'var(--radix-accordion-content-height)' },
+					to: { height: '0' },
+				},
+				pulse: {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.5' },
+				},
+				'button-press': {
+					'0%, 100%': { transform: 'scale(1)' },
+					'50%': { transform: 'scale(0.97)' },
+				},
+				'card-glow': {
+					'0%, 100%': { boxShadow: '0 0 15px 2px rgba(155, 135, 245, 0.4)' },
+					'50%': { boxShadow: '0 0 25px 5px rgba(155, 135, 245, 0.6)' },
+				}
+			},
+			animation: {
+				"accordion-down": "accordion-down 0.2s ease-out",
+				"accordion-up": "accordion-up 0.2s ease-out",
+				"pulse": "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+				"button-press": "button-press 0.2s ease-in-out",
+				"card-glow": "card-glow 2s ease-in-out infinite",
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -68,28 +102,6 @@ export default {
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
 			},
-			keyframes: {
-				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
-				},
-				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
-					},
-					to: {
-						height: '0'
-					}
-				}
-			},
-			animation: {
-				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
-			}
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
