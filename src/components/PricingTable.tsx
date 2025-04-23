@@ -54,13 +54,13 @@ const plans = [
   {
     tier: "Enterprise",
     color: "#fff",
-    bg: "bg-gradient-to-br from-[#2C2F3E] via-[#3A3E4E] to-[#4A4E5E]",
-    border: "border-[#4A4E5E]",
+    bg: "bg-gradient-to-br from-[#3A3E4E] via-[#4A4E5E] to-[#5A6E7E]",
+    border: "border-[#5A6E7E]",
     title: "Enterprise",
     priceMonth: 800,
     priceAnnual: 800 * 10, // 2 months free
     button: "Contact Sales",
-    btnClass: "bg-[#9b87f5] text-white hover:bg-[#7E69AB] border-2 border-white/30 active:animate-button-press",
+    btnClass: "bg-[#9b87f5] text-white hover:bg-[#7E69AB] border-2 border-white/50 active:animate-button-press",
     highlights: [
       "All points in Standard +",
       "Team folders for sharing collections",
