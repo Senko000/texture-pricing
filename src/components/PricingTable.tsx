@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import PricingToggle from "./PricingToggle";
 import PlanCard from "./PlanCard";
@@ -55,13 +54,13 @@ const plans = [
   {
     tier: "Enterprise",
     color: "#fff",
-    bg: "bg-gradient-to-br from-[#1A1F2C] via-[#442f6e] to-[#9b87f5]",
-    border: "border-[#1A1F2C]",
+    bg: "bg-gradient-to-br from-[#2C2F3E] via-[#3A3E4E] to-[#4A4E5E]",
+    border: "border-[#4A4E5E]",
     title: "Enterprise",
     priceMonth: 800,
     priceAnnual: 800 * 10, // 2 months free
     button: "Contact Sales",
-    btnClass: "bg-gradient-to-r from-[#9b87f5] to-[#7E69AB] text-white hover:from-[#7E69AB] hover:to-[#9b87f5] border-2 border-white/30 active:animate-button-press",
+    btnClass: "bg-[#9b87f5] text-white hover:bg-[#7E69AB] border-2 border-white/30 active:animate-button-press",
     highlights: [
       "All points in Standard +",
       "Team folders for sharing collections",
