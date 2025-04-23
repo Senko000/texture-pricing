@@ -1,5 +1,5 @@
 
-import { Users, Folder, FolderOpen, Calendar, DollarSign, FileText, CustomerService, Database } from "lucide-react";
+import { Users, Folder, FolderOpen, Calendar, DollarSign, FileText, Headset, Database } from "lucide-react";
 
 const featureColumns = [
   [
@@ -42,7 +42,7 @@ const featureColumns = [
       text: "Export ZIP & SBSAR, U3MA"
     },
     {
-      icon: CustomerService,
+      icon: Headset,
       text: "Management & storage"
     }
   ]
