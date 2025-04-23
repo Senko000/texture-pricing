@@ -23,7 +23,7 @@ const plans = [
     descriptions: [
       "Basic tier of SEDDI Textura's toolset",
       "Limited monthly material generation",
-      "Materials shared in public library"
+      null // Remove the description for the third highlight
     ],
     ctaUrl: "https://app.textura.ai/login",
     isPopular: false
