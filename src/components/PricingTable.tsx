@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import PricingToggle from "./PricingToggle";
 import PlanCard from "./PlanCard";
@@ -60,7 +61,7 @@ const plans = [
     priceMonth: 800,
     priceAnnual: 800 * 10, // 2 months free
     button: "Contact Sales",
-    btnClass: "bg-[#9b87f5] text-black hover:bg-[#7E69AB] border-2 border-[#9b87f5]/50 active:animate-button-press",
+    btnClass: "bg-[#9b87f5] text-white hover:bg-[#7E69AB] border-2 border-[#9b87f5]/50 active:animate-button-press",
     highlights: [
       "All points in Standard +",
       "Team folders for sharing your collections internally and externally",
@@ -75,7 +76,7 @@ const plans = [
       "Collaborate and share material collections with internal and external teams",
       "Easily transfer materials from CLO and Vizoo platforms",
       "Access our most advanced color manipulation tools inspired by Heather technology",
-      "Connect directly with suppliers and specialized tiling teams",
+      "Connect directly with suppliers and specialized tiling teams", 
       "Extensive storage for your entire material library",
       "Get personalized support from a dedicated account representative"
     ],
