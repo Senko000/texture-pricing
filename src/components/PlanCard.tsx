@@ -1,3 +1,4 @@
+
 import { Check, Users } from "lucide-react";
 import { useState } from "react";
 import FeatureDetail from "./FeatureDetail";
@@ -55,8 +56,8 @@ const PlanCard = ({
         "rounded-2xl border-2 backdrop-blur-lg flex flex-col items-center px-6 py-8 relative transition-all duration-300 group",
         border,
         bg,
-        hovering || isSelected ? "shadow-[0_15px_35px_0_rgba(155,135,245,0.25)] scale-[1.02] z-10" : "shadow-lg",
-        isSelected ? "ring-2 ring-[#9b87f5]" : "",
+        hovering || isSelected ? "shadow-[0_15px_35px_0_rgba(1,204,199,0.25)] scale-[1.02] z-10" : "shadow-lg",
+        isSelected ? "ring-2 ring-[#01ccc7]" : "",
         isPopular && isSelected ? "animate-card-glow" : ""
       )}
       style={{
@@ -69,7 +70,7 @@ const PlanCard = ({
     >
       {/* Popular badge */}
       {isPopular && (
-        <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#9b87f5] to-[#7E69AB] text-white text-xs px-4 py-1 rounded-full font-semibold shadow-lg animate-pulse">
+        <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#01ccc7] to-[#00a8a4] text-white text-xs px-4 py-1 rounded-full font-semibold shadow-lg animate-pulse">
           Most Popular
         </div>
       )}
@@ -97,16 +98,16 @@ const PlanCard = ({
                 description={descriptions[idx]}
               >
                 <div className="flex items-start gap-2">
-                  <div className="w-5 h-5 rounded-full bg-[#9b87f5]/10 flex items-center justify-center mt-0.5">
-                    <Check className="w-3 h-3 text-[#9b87f5]" />
+                  <div className="w-5 h-5 rounded-full bg-[#01ccc7]/10 flex items-center justify-center mt-0.5">
+                    <Check className="w-3 h-3 text-[#01ccc7]" />
                   </div>
                   <span>{item}</span>
                 </div>
               </FeatureDetail>
             ) : (
               <div className="flex items-start gap-2">
-                <div className="w-5 h-5 rounded-full bg-[#9b87f5]/10 flex items-center justify-center mt-0.5">
-                  <Check className="w-3 h-3 text-[#9b87f5]" />
+                <div className="w-5 h-5 rounded-full bg-[#01ccc7]/10 flex items-center justify-center mt-0.5">
+                  <Check className="w-3 h-3 text-[#01ccc7]" />
                 </div>
                 <span>{item}</span>
               </div>
@@ -118,7 +119,7 @@ const PlanCard = ({
         className={cn(
           "w-full mt-auto font-semibold rounded-lg py-3 text-base transition-all duration-300 text-center",
           btnClass,
-          "hover:shadow-[0_8px_16px_0_rgba(155,135,245,0.25)] hover:scale-105 focus:outline-none"
+          "hover:shadow-[0_8px_16px_0_rgba(1,204,199,0.25)] hover:scale-105 focus:outline-none"
         )}
         onClick={(e) => {
           e.stopPropagation();

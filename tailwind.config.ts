@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -41,8 +40,8 @@ export default {
 					'50%': { transform: 'scale(0.97)' },
 				},
 				'card-glow': {
-					'0%, 100%': { boxShadow: '0 0 15px 2px rgba(155, 135, 245, 0.4)' },
-					'50%': { boxShadow: '0 0 25px 5px rgba(155, 135, 245, 0.6)' },
+					'0%, 100%': { boxShadow: '0 0 15px 2px rgba(1, 204, 199, 0.4)' },
+					'50%': { boxShadow: '0 0 25px 5px rgba(1, 204, 199, 0.6)' },
 				}
 			},
 			animation: {
@@ -95,6 +94,10 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				brand: {
+					DEFAULT: '#01ccc7',
+					foreground: 'white',
 				}
 			},
 			borderRadius: {

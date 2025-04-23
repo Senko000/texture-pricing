@@ -8,14 +8,14 @@ import { toast } from "sonner";
 const plans = [
   {
     tier: "Free",
-    color: "#333",
+    color: "#01ccc7",
     bg: "bg-gradient-to-br from-white to-gray-100",
     border: "border-gray-200",
     title: "Free",
     priceMonth: 0,
     priceAnnual: 0,
     button: "Start Free",
-    btnClass: "bg-[#1A1F2C] text-white hover:bg-[#333] active:animate-button-press",
+    btnClass: "bg-[#01ccc7] text-white hover:bg-[#00a8a4] active:animate-button-press",
     highlights: [
       "Generate, store & download up to 15 materials/month",
       "Materials are shared in public library",
@@ -30,14 +30,14 @@ const plans = [
   },
   {
     tier: "Standard",
-    color: "#fff",
+    color: "#01ccc7",
     bg: "bg-gradient-to-br from-white/90 via-gray-100/90 to-gray-200/90",
     border: "border-gray-300",
     title: "Standard",
     priceMonth: 500,
     priceAnnual: 500 * 10, // 2 months free
     button: "Upgrade to Standard",
-    btnClass: "bg-[#1A1F2C] text-white hover:bg-[#333] active:animate-button-press",
+    btnClass: "bg-[#01ccc7] text-white hover:bg-[#00a8a4] active:animate-button-press",
     highlights: [
       "Unlimited material generation",
       "Store up to 100 materials privately",
@@ -54,14 +54,14 @@ const plans = [
   },
   {
     tier: "Enterprise",
-    color: "#fff",
-    bg: "bg-gradient-to-br from-[#F1F0FB] to-[#E5DEFF]",
-    border: "border-[#9b87f5]",
+    color: "#01ccc7",
+    bg: "bg-gradient-to-br from-[#E5F9F8] to-[#C0F2EF]",
+    border: "border-[#01ccc7]",
     title: "Enterprise",
     priceMonth: 800,
     priceAnnual: 800 * 10, // 2 months free
     button: "Contact Sales",
-    btnClass: "bg-[#9b87f5] text-white hover:bg-[#7E69AB] border-2 border-[#9b87f5]/50 active:animate-button-press",
+    btnClass: "bg-[#01ccc7] text-white hover:bg-[#00a8a4] border-2 border-[#01ccc7]/50 active:animate-button-press",
     highlights: [
       "All points in Standard +",
       "Team folders for sharing your collections internally and externally",

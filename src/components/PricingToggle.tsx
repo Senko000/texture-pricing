@@ -12,7 +12,7 @@ const PricingToggle = ({ annual, setAnnual }: Props) => (
       className={cn(
         "px-6 py-2 transition-all duration-300 text-sm rounded-full font-medium",
         !annual 
-          ? "bg-gradient-to-r from-[#9b87f5] to-[#7E69AB] text-white shadow-lg" 
+          ? "bg-gradient-to-r from-[#01ccc7] to-[#00a8a4] text-white shadow-lg" 
           : "text-gray-700 hover:text-gray-900"
       )}
       aria-pressed={!annual}
@@ -24,7 +24,7 @@ const PricingToggle = ({ annual, setAnnual }: Props) => (
       className={cn(
         "px-6 py-2 transition-all duration-300 text-sm rounded-full font-medium",
         annual 
-          ? "bg-gradient-to-r from-[#9b87f5] to-[#7E69AB] text-white shadow-lg" 
+          ? "bg-gradient-to-r from-[#01ccc7] to-[#00a8a4] text-white shadow-lg" 
           : "text-gray-700 hover:text-gray-900"
       )}
       aria-pressed={annual}
