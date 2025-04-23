@@ -49,7 +49,7 @@ const plans = [
       "Access to all features in the Free tier",
       "Get faster responses and dedicated help from our team"
     ],
-    isPopular: true
+    isPopular: false
   },
   {
     tier: "Enterprise",
@@ -79,7 +79,7 @@ const plans = [
       "Extensive storage for your entire material library",
       "Get personalized support from a dedicated account representative"
     ],
-    isPopular: false
+    isPopular: true
   }
 ];
 
