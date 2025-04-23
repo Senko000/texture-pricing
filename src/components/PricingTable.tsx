@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import PricingToggle from "./PricingToggle";
 import PlanCard from "./PlanCard";
@@ -64,18 +63,18 @@ const plans = [
     btnClass: "bg-[#9b87f5] text-black hover:bg-[#7E69AB] border-2 border-[#9b87f5]/50 active:animate-button-press",
     highlights: [
       "All points in Standard +",
-      "Team folders for sharing collections",
-      "Batch upload & mill integrations",
-      "Advanced recoloring tools",
-      "Supplier/tiling team connections",
+      "Team folders for sharing your collections internally and externally",
+      "Batch upload from previous CLO, or Vizoo files",
+      "Advanced recoloring tools like Heather",
+      "Supplier/Tiling team connections",
       "Store up to 2000 materials",
       "Dedicated account manager"
     ],
     descriptions: [
       "Everything in the Standard plan plus enterprise features",
-      "Collaborate with your team through shared material collections",
-      "Upload multiple materials at once and integrate with mill systems",
-      "Access to our most powerful color manipulation tools",
+      "Collaborate and share material collections with internal and external teams",
+      "Easily transfer materials from CLO and Vizoo platforms",
+      "Access our most advanced color manipulation tools inspired by Heather technology",
       "Connect directly with suppliers and specialized tiling teams",
       "Extensive storage for your entire material library",
       "Get personalized support from a dedicated account representative"
