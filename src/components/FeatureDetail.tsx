@@ -19,7 +19,7 @@ const FeatureDetail = ({ children, title, description }: FeatureDetailProps) => 
       <HoverCardTrigger asChild>
         <div className="flex items-start gap-2 cursor-help">
           {children}
-          <Info className="w-4 h-4 text-[#9b87f5] opacity-70 hover:opacity-100 transition-opacity" />
+          <Info className="w-5 h-5 text-[#9b87f5] opacity-70 hover:opacity-100 transition-opacity" />
         </div>
       </HoverCardTrigger>
       <HoverCardContent className="w-80 backdrop-blur-xl bg-white/90 dark:bg-black/80 border-2 border-[#9b87f5]/20 shadow-lg">

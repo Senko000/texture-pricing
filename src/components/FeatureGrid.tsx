@@ -81,7 +81,7 @@ const FeatureGrid = () => {
   return (
     <section className="w-full flex flex-col items-center">
       <div className="text-3xl font-playfair font-bold text-[#1A1F2C] text-center mb-8">
-        SEDDI Textura Features In Every Plan
+        Essential Textura Features In Every Plan
       </div>
       <div className="flex flex-col md:flex-row gap-5 w-full max-w-3xl mx-auto">
         {featureColumns.map((col, i) => (

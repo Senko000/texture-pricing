@@ -1,4 +1,3 @@
-
 import { Check, Users } from "lucide-react";
 import { useState } from "react";
 import FeatureDetail from "./FeatureDetail";
@@ -70,7 +69,7 @@ const PlanCard = ({
     >
       {/* Popular badge */}
       {isPopular && (
-        <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#01ccc7] to-[#00a8a4] text-white text-xs px-4 py-1 rounded-full font-semibold shadow-lg animate-pulse">
+        <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#01ccc7] to-[#00a8a4] text-white text-xs px-4 py-1 rounded-full font-semibold shadow-lg">
           Most Popular
         </div>
       )}

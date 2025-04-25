@@ -18,12 +18,12 @@ const plans = [
     highlights: [
       "Essential SEDDI Textura features",
       "Generate, store & download up to 15 materials/month",
-      "All materials may be published in Texturas public library"
+      "Materials created in the Free plan are public. Upgrade to keep them private."
     ],
     descriptions: [
       "Basic tier of SEDDI Textura's toolset",
       "Limited monthly material generation",
-      null // Remove the description for the third highlight
+      null
     ],
     ctaUrl: "https://app.textura.ai/login",
     isPopular: false
@@ -35,12 +35,12 @@ const plans = [
     border: "border-gray-300",
     title: "Standard",
     priceMonth: 500,
-    priceAnnual: 500 * 10, // 2 months free
+    priceAnnual: 500 * 10,
     button: "Upgrade to Standard",
     btnClass: "bg-[#01ccc7] text-white hover:bg-[#00a8a4] active:animate-button-press",
     highlights: [
       "Essential SEDDI Textura features",
-      "Unlimited material generation",
+      "Unlimited material creation",
       "Store up to 500 materials",
       "Private SEDDI Textura library",
       "Priority support"
@@ -62,14 +62,14 @@ const plans = [
     border: "border-[#01ccc7]",
     title: "Enterprise",
     priceMonth: 800,
-    priceAnnual: 800 * 10, // 2 months free
+    priceAnnual: 800 * 10,
     button: "Contact Sales",
     btnClass: "bg-[#01ccc7] text-white hover:bg-[#00a8a4] border-2 border-[#01ccc7]/50 active:animate-button-press",
     highlights: [
       "Essential SEDDI Textura features",
       "Personalized team folders to enhance workspace collaboration",
       "Batch upload fabric scans and digital materials",
-      "Advanced recoloring - Heather fabric tools",
+      "Advanced recoloring including heathered fabric tools",
       "Supplier/tiling team collections",
       "Store up to 2000 materials",
       "Dedicated account manager"
@@ -102,6 +102,9 @@ const PricingTable = () => {
 
   return (
     <section>
+      <div className="text-center mb-8">
+        <p className="text-lg text-gray-600">Pick the perfect plan to meet your digital material creation needs.</p>
+      </div>
       <div className="flex flex-col items-center mt-10 mb-5">
         <span className="text-xs text-gray-600 mb-1">*All prices in USD</span>
         <PricingToggle annual={annual} setAnnual={setAnnual} />
