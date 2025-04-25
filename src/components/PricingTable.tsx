@@ -16,12 +16,12 @@ const plans = [
     button: "Start Free",
     btnClass: "bg-[#01ccc7] text-white hover:bg-[#00a8a4] active:animate-button-press",
     highlights: [
-      "Essential SEDDI Textura features",
+      "Essential Textura features",
       "Generate, store & download up to 15 materials/month",
       "Materials created in the Free plan are public. Upgrade to keep them private."
     ],
     descriptions: [
-      "Basic tier of SEDDI Textura's toolset",
+      "Basic tier of Textura's toolset",
       "Limited monthly material generation",
       null
     ],
@@ -39,10 +39,10 @@ const plans = [
     button: "Upgrade to Standard",
     btnClass: "bg-[#01ccc7] text-white hover:bg-[#00a8a4] active:animate-button-press",
     highlights: [
-      "Essential SEDDI Textura features",
+      "Essential Textura features",
       "Unlimited material creation",
       "Store up to 500 materials",
-      "Private SEDDI Textura library",
+      "Private material library",
       "Priority support"
     ],
     descriptions: [
@@ -66,7 +66,7 @@ const plans = [
     button: "Contact Sales",
     btnClass: "bg-[#01ccc7] text-white hover:bg-[#00a8a4] border-2 border-[#01ccc7]/50 active:animate-button-press",
     highlights: [
-      "Essential SEDDI Textura features",
+      "Essential Textura features",
       "Personalized team folders to enhance workspace collaboration",
       "Batch upload fabric scans and digital materials",
       "Advanced recoloring including heathered fabric tools",
@@ -77,7 +77,7 @@ const plans = [
     descriptions: [
       "Comprehensive enterprise-level material management",
       "Collaborative workspace with custom team organization",
-      "Automated batch upload process for importing existing digital materials into the Textura library",
+      "Automated batch upload process for importing existing digital materials into the material library",
       "Advanced color manipulation with specialized Heather fabric tools",
       "Easily connect with your global suppliers to receive fabric scans reducing the need for physical sample shipments. Assign fabrics directly to your tiling teams and suppliers for collaboration",
       "Extensive material library storage",
