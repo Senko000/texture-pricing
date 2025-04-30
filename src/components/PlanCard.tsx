@@ -1,3 +1,4 @@
+
 import { Check, Users } from "lucide-react";
 import { useState } from "react";
 import FeatureDetail from "./FeatureDetail";
@@ -16,6 +17,8 @@ type Plan = {
   highlights: string[];
   descriptions?: string[];
   isPopular: boolean;
+  ctaUrl: string;
+  ctaUrlAnnual?: string;
 };
 
 const PlanCard = ({

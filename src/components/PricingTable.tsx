@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import PricingToggle from "./PricingToggle";
 import PlanCard from "./PlanCard";
@@ -26,6 +27,7 @@ const plans = [
       null
     ],
     ctaUrl: "https://app.textura.ai/login",
+    ctaUrlAnnual: "https://app.textura.ai/login",
     isPopular: false
   },
   {
@@ -52,7 +54,8 @@ const plans = [
       "Exclusive private material library",
       "Faster, dedicated support response"
     ],
-    ctaUrl: "https://app.textura.ai/login",
+    ctaUrl: "https://buy.stripe.com/eVa16jeoN4njbOocNf",
+    ctaUrlAnnual: "https://buy.stripe.com/28o4iv0xX6vr8Cc7sW",
     isPopular: false
   },
   {
@@ -63,7 +66,7 @@ const plans = [
     title: "Enterprise",
     priceMonth: 800,
     priceAnnual: 800 * 10,
-    button: "Contact Sales",
+    button: "Upgrade to Enterprise",
     btnClass: "bg-[#01ccc7] text-white hover:bg-[#00a8a4] border-2 border-[#01ccc7]/50 active:animate-button-press",
     highlights: [
       "Essential Textura features",
@@ -83,7 +86,8 @@ const plans = [
       "Extensive material library storage",
       "Personalized support with a dedicated account representative"
     ],
-    ctaUrl: "https://meetings.hubspot.com/sam-j/enterprise-pricing-page-link",
+    ctaUrl: "https://buy.stripe.com/eVaaGT80p7zv9Gg8x1",
+    ctaUrlAnnual: "https://buy.stripe.com/9AQg1d0xX6vraKk9B6",
     isPopular: true
   }
 ];
@@ -96,8 +100,9 @@ const PricingTable = () => {
     setSelectedPlan(tier);
   };
 
-  const handlePlanAction = (tier: string, ctaUrl: string) => {
-    window.location.href = ctaUrl;
+  const handlePlanAction = (tier: string, ctaUrl: string, ctaUrlAnnual: string) => {
+    const targetUrl = annual ? ctaUrlAnnual : ctaUrl;
+    window.location.href = targetUrl;
   };
 
   return (
@@ -123,7 +128,7 @@ const PricingTable = () => {
             delay={idx * 100}
             isSelected={selectedPlan === plan.tier}
             onSelect={handlePlanSelect}
-            onAction={() => handlePlanAction(plan.tier, plan.ctaUrl)}
+            onAction={() => handlePlanAction(plan.tier, plan.ctaUrl, plan.ctaUrlAnnual || plan.ctaUrl)}
           />
         ))}
       </div>
