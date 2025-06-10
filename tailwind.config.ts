@@ -19,8 +19,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Poppins', 'sans-serif'],
-        playfair: ['Playfair Display', 'serif'],
+        sans: ['Roboto', 'sans-serif'],
+        roboto: ['Roboto', 'sans-serif'],
       },
       keyframes: {
         "accordion-down": {

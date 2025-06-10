@@ -1,3 +1,4 @@
+
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -61,7 +62,7 @@ const PricingTable = () => {
     <div className="w-full">
       {/* Billing Toggle */}
       <div className="flex items-center justify-center gap-4 mb-8">
-        <Label htmlFor="billing-toggle" className="text-sm font-medium text-[#1A1F2C]">
+        <Label htmlFor="billing-toggle" className="text-sm font-medium text-[#1A1F2C] font-roboto">
           Monthly
         </Label>
         <Switch
@@ -70,7 +71,7 @@ const PricingTable = () => {
           onCheckedChange={setIsAnnual}
           className="data-[state=checked]:bg-[#01ccc7]"
         />
-        <Label htmlFor="billing-toggle" className="text-sm font-medium text-[#1A1F2C]">
+        <Label htmlFor="billing-toggle" className="text-sm font-medium text-[#1A1F2C] font-roboto">
           Annual
         </Label>
       </div>
@@ -78,34 +79,34 @@ const PricingTable = () => {
       {/* Pricing Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
         {plans.map((plan, index) => (
-          <Card key={index} className={`relative ${plan.isPopular ? 'border-[#01ccc7] shadow-lg' : 'border-gray-200'} bg-white/80 backdrop-blur-sm`}>
+          <Card key={index} className={`relative ${plan.isPopular ? 'border-[#01ccc7] shadow-lg' : 'border-gray-200'} bg-white/80 backdrop-blur-sm flex flex-col h-full`}>
             {plan.isPopular && (
-              <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-[#01ccc7] text-white">
+              <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-[#01ccc7] text-white font-roboto">
                 Most Popular
               </Badge>
             )}
             <CardHeader className="text-center pb-4">
-              <CardTitle className="text-xl font-bold text-[#1A1F2C]">{plan.name}</CardTitle>
+              <CardTitle className="text-xl font-bold text-[#1A1F2C] font-roboto">{plan.name}</CardTitle>
               <div className="mt-4">
-                <span className="text-4xl font-bold text-[#1A1F2C]">
+                <span className="text-4xl font-bold text-[#1A1F2C] font-roboto">
                   ${isAnnual ? plan.annualPrice : plan.monthlyPrice}
                 </span>
-                <span className="text-gray-600 ml-1">
+                <span className="text-gray-600 ml-1 font-roboto">
                   /{isAnnual ? 'year' : 'month'}
                 </span>
               </div>
             </CardHeader>
-            <CardContent className="pt-0">
-              <ul className="space-y-3 mb-6">
+            <CardContent className="pt-0 flex-1 flex flex-col">
+              <ul className="space-y-3 mb-6 flex-1">
                 {plan.features.map((feature, featureIndex) => (
                   <li key={featureIndex} className="flex items-start gap-3">
                     <Check className="w-5 h-5 text-[#01ccc7] mt-0.5 flex-shrink-0" />
-                    <span className="text-sm text-gray-700">{feature}</span>
+                    <span className="text-sm text-gray-700 font-roboto">{feature}</span>
                   </li>
                 ))}
               </ul>
               <Button 
-                className={`w-full ${plan.isPopular 
+                className={`w-full mt-auto font-roboto ${plan.isPopular 
                   ? 'bg-[#01ccc7] hover:bg-[#00a8a4] text-white' 
                   : 'bg-white hover:bg-gray-50 text-[#01ccc7] border border-[#01ccc7]'
                 }`}
