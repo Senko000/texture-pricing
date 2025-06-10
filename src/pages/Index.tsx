@@ -15,7 +15,7 @@ const Index = () => (
           <img 
             src="/lovable-uploads/0a2b57b9-bd8f-4407-bdc7-77f4b349b611.png" 
             alt="SEDDI Textura" 
-            className="h-8 md:h-10"
+            className="h-10 md:h-12"
           />
         </a>
       </div>
