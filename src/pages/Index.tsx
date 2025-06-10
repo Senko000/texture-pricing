@@ -13,7 +13,7 @@ const Index = () => (
           className="inline-block hover:opacity-80 transition-opacity"
         >
           <img 
-            src="/lovable-uploads/afa487e3-9a4e-4ee4-a77b-03d1c0bc6670.png" 
+            src="/lovable-uploads/0a2b57b9-bd8f-4407-bdc7-77f4b349b611.png" 
             alt="SEDDI Textura" 
             className="h-8 md:h-10"
           />
