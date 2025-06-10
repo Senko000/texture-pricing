@@ -1,5 +1,6 @@
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const faqs = [
   {
@@ -86,27 +87,31 @@ const faqs = [
 
 const FAQSection = () => {
   return (
-    <section className="w-full py-16 px-4">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl font-bold text-center text-[#1A1F2C] mb-12">
-          Frequently Asked Questions
-        </h2>
-        <Accordion type="single" collapsible className="space-y-4">
-          {faqs.map((faq, index) => (
-            <AccordionItem 
-              key={index} 
-              value={`item-${index}`} 
-              className="border border-gray-200 rounded-lg px-6 bg-white/80 backdrop-blur-sm"
-            >
-              <AccordionTrigger className="text-left text-[#1A1F2C] hover:text-[#01ccc7] transition-colors">
-                {faq.question}
-              </AccordionTrigger>
-              <AccordionContent className="text-gray-700 leading-relaxed">
-                {faq.answer}
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
+    <section className="w-full py-8">
+      <div className="max-w-5xl mx-auto">
+        <Card className="border-gray-200 bg-white/80 backdrop-blur-sm">
+          <CardHeader className="text-center pb-4">
+            <CardTitle className="text-xl font-bold text-[#1A1F2C]">More FAQs</CardTitle>
+          </CardHeader>
+          <CardContent className="pt-0">
+            <Accordion type="single" collapsible className="space-y-2">
+              {faqs.map((faq, index) => (
+                <AccordionItem 
+                  key={index} 
+                  value={`item-${index}`} 
+                  className="border border-gray-100 rounded-lg px-4 bg-gray-50/50"
+                >
+                  <AccordionTrigger className="text-left text-sm font-medium text-[#1A1F2C] hover:text-[#01ccc7] transition-colors py-3 hover:no-underline">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-sm text-gray-700 leading-relaxed pb-3">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </CardContent>
+        </Card>
       </div>
     </section>
   );
