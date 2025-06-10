@@ -1,4 +1,3 @@
-
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -7,6 +6,7 @@ import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { useState } from "react";
 import FeatureGrid from "./FeatureGrid";
+import FAQSection from "./FAQSection";
 
 const plans = [
   {
@@ -122,6 +122,9 @@ const PricingTable = () => {
 
       {/* Feature Grid */}
       <FeatureGrid />
+
+      {/* FAQ Section */}
+      <FAQSection />
     </div>
   );
 };
