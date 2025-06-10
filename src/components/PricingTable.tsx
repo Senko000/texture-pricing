@@ -76,6 +76,18 @@ const PricingTable = () => {
         </Label>
       </div>
 
+      {/* Deal Banner - Only shows when annual is selected */}
+      {isAnnual && (
+        <div className="mb-8 mx-auto max-w-md animate-fade-in">
+          <div className="bg-gradient-to-r from-[#01ccc7] to-[#00a8a4] rounded-lg p-4 text-center shadow-lg">
+            <div className="text-white font-roboto">
+              <div className="text-lg font-bold mb-1">🎉 Limited Time Deal!</div>
+              <div className="text-sm">Save 2 months by choosing annual pricing</div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Pricing Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
         {plans.map((plan, index) => (
