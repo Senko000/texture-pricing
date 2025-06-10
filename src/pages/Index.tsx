@@ -35,6 +35,18 @@ const Index = () => (
       
       <PricingTable />
     </div>
+
+    {/* Featured in section */}
+    <section className="w-full py-16 px-4 bg-white/50 backdrop-blur-sm">
+      <div className="max-w-5xl mx-auto text-center">
+        <h3 className="text-lg font-medium text-[#1A1F2C] mb-8">Featured in</h3>
+        <img 
+          src="/lovable-uploads/5b052b40-8e93-4cef-bcbc-667758c6608d.png" 
+          alt="Featured in Fashion Network, Innovation in Textiles, Interline, Knitting Trade Journal, Sourcing Journal, and WWD" 
+          className="w-full max-w-4xl mx-auto h-auto opacity-70 hover:opacity-100 transition-opacity"
+        />
+      </div>
+    </section>
   </div>
 );
 
