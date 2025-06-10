@@ -14,7 +14,7 @@ function render_pricing_table() {
             'price_month' => 0,
             'price_annual' => 0,
             'button_text' => 'Start Free',
-            'button_url' => '#',
+            'button_url' => 'https://app.textura.ai/login',
             'highlights' => array(
                 'Essential Textura features',
                 'Generate, store & download up to 15 materials/month',
@@ -26,7 +26,7 @@ function render_pricing_table() {
             'price_month' => 500,
             'price_annual' => 5000,
             'button_text' => 'Upgrade to Standard',
-            'button_url' => '#',
+            'button_url' => 'https://app.textura.ai/login',
             'highlights' => array(
                 'Essential Textura features',
                 'Unlimited material creation',
@@ -39,8 +39,8 @@ function render_pricing_table() {
             'tier' => 'Enterprise',
             'price_month' => 800,
             'price_annual' => 8000,
-            'button_text' => 'Contact Sales',
-            'button_url' => '#',
+            'button_text' => 'Upgrade to Enterprise',
+            'button_url' => 'https://app.textura.ai/login',
             'highlights' => array(
                 'Essential Textura features',
                 'Personalized team folders to enhance workspace collaboration',

@@ -54,8 +54,8 @@ const plans = [
       "Exclusive private material library",
       "Faster, dedicated support response"
     ],
-    ctaUrl: "https://buy.stripe.com/eVa16jeoN4njbOocNf",
-    ctaUrlAnnual: "https://buy.stripe.com/28o4iv0xX6vr8Cc7sW",
+    ctaUrl: "https://app.textura.ai/login",
+    ctaUrlAnnual: "https://app.textura.ai/login",
     isPopular: false
   },
   {
@@ -86,8 +86,8 @@ const plans = [
       "Extensive material library storage",
       "Personalized support with a dedicated account representative"
     ],
-    ctaUrl: "https://buy.stripe.com/eVaaGT80p7zv9Gg8x1",
-    ctaUrlAnnual: "https://buy.stripe.com/9AQg1d0xX6vraKk9B6",
+    ctaUrl: "https://app.textura.ai/login",
+    ctaUrlAnnual: "https://app.textura.ai/login",
     isPopular: true
   }
 ];
@@ -101,7 +101,7 @@ const PricingTable = () => {
   };
 
   const handlePlanAction = (tier: string, ctaUrl: string, ctaUrlAnnual: string) => {
-    const targetUrl = annual ? ctaUrlAnnual : ctaUrl;
+    const targetUrl = "https://app.textura.ai/login";
     window.location.href = targetUrl;
   };
 
