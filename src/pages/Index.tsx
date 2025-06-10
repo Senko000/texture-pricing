@@ -3,7 +3,25 @@ import PricingTable from "@/components/PricingTable";
 
 const Index = () => (
   <div className="min-h-screen bg-gradient-to-br from-[#F6F6F7] via-white to-[#E5F9F8]">
-    <div className="max-w-5xl mx-auto py-16 px-4 relative">
+    {/* Header with Logo */}
+    <header className="w-full px-4 py-6">
+      <div className="max-w-5xl mx-auto">
+        <a 
+          href="https://www.textura.ai" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="inline-block hover:opacity-80 transition-opacity"
+        >
+          <img 
+            src="/lovable-uploads/afa487e3-9a4e-4ee4-a77b-03d1c0bc6670.png" 
+            alt="SEDDI Textura" 
+            className="h-8 md:h-10"
+          />
+        </a>
+      </div>
+    </header>
+
+    <div className="max-w-5xl mx-auto py-8 px-4 relative">
       {/* Abstract gradient shapes in background */}
       <div className="absolute top-40 -left-64 w-96 h-96 bg-gradient-to-br from-[#01ccc7]/20 to-[#00a8a4]/20 rounded-full blur-3xl -z-10" />
       <div className="absolute -top-20 -right-32 w-96 h-96 bg-gradient-to-br from-[#E5F9F8]/30 to-[#01ccc7]/20 rounded-full blur-3xl -z-10" />
