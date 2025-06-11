@@ -17,7 +17,7 @@ const plans = [
     features: [
       "Essential Textura features",
       "Generate, store & download up to 10 materials/month", 
-      "Materials created in the Free plan are public. Upgrade to keep them private."
+      "Materials created in the Free plan are visible to others. Upgrade to protect your content"
     ],
     buttonText: "Start Free",
     buttonUrl: "https://app.textura.ai/login"
