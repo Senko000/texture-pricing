@@ -117,28 +117,20 @@ const PricingTable = () => {
       )}
 
       {/* Pricing Table */}
-      <div className="bg-white rounded-2xl shadow-xl mb-16 pt-4">
+      <div className="bg-white rounded-2xl shadow-xl mb-16">
         {/* Header Section */}
-        <div className="grid grid-cols-1 md:grid-cols-6 gap-0">
-          {/* Empty first column for alignment */}
-          <div className="hidden md:block"></div>
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-0">
           {plans.map((plan, index) => (
             <div 
               key={index}
               className={`p-6 text-center border-b-4 ${
-                plan.isPopular 
-                  ? 'bg-gradient-to-b from-[#01ccc7]/5 to-white border-[#01ccc7] relative' 
-                  : index === 0 ? 'bg-gray-50 border-gray-300' 
-                  : index === 1 ? 'bg-blue-50 border-blue-300'
-                  : index === 2 ? 'bg-purple-50 border-purple-300'
-                  : 'bg-orange-50 border-orange-300'
+                index === 0 ? 'bg-gray-50 border-gray-300' 
+                : index === 1 ? 'bg-blue-50 border-blue-300'
+                : index === 2 ? 'bg-purple-50 border-purple-300'
+                : index === 3 ? 'bg-gradient-to-b from-[#01ccc7]/5 to-white border-[#01ccc7]'
+                : 'bg-orange-50 border-orange-300'
               }`}
             >
-              {plan.isPopular && (
-                <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-[#01ccc7] to-[#00a8a4] text-white font-roboto px-3 py-1 rounded-full shadow-lg text-xs">
-                  Most Popular
-                </Badge>
-              )}
               <h3 className="text-xl font-bold text-[#1A1F2C] font-roboto mb-3">
                 {plan.name}
               </h3>
@@ -151,8 +143,8 @@ const PricingTable = () => {
                 </span>
               </div>
               <Button 
-                className={`w-full font-roboto font-semibold py-2 text-sm transition-all duration-300 ${
-                  plan.isPopular 
+                className={`w-full font-roboto font-semibold py-2 px-4 text-sm transition-all duration-300 ${
+                  index === 3 
                     ? 'bg-gradient-to-r from-[#01ccc7] to-[#00a8a4] hover:from-[#00a8a4] hover:to-[#008a87] text-white shadow-lg hover:shadow-xl' 
                     : 'bg-white hover:bg-gray-50 text-[#01ccc7] border border-[#01ccc7] hover:border-[#00a8a4]'
                 }`}
