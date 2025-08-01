@@ -117,17 +117,15 @@ const PricingTable = () => {
       )}
 
       {/* Pricing Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-16">
         {plans.map((plan, index) => (
           <Card 
             key={index} 
-            className={`relative group transition-all duration-300 hover:scale-105 hover:shadow-2xl ${
+            className={`relative ${
               plan.isPopular 
-                ? 'border-[#01ccc7] shadow-xl ring-2 ring-[#01ccc7]/20' 
-                : 'border-gray-200 hover:border-[#01ccc7]/30'
-            } bg-white/90 backdrop-blur-sm flex flex-col h-full rounded-2xl overflow-hidden ${
-              index >= 3 ? 'lg:col-start-2 lg:max-w-md lg:mx-auto xl:col-start-auto xl:max-w-none xl:mx-0' : ''
-            }`}
+                ? 'border-[#01ccc7] shadow-lg ring-2 ring-[#01ccc7]/20' 
+                : 'border-gray-200'
+            } bg-white/90 backdrop-blur-sm flex flex-col h-full`}
           >
             {plan.isPopular && (
               <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-[#01ccc7] to-[#00a8a4] text-white font-roboto px-4 py-1 rounded-full shadow-lg">
