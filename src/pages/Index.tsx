@@ -21,7 +21,7 @@ const Index = () => (
       </div>
     </header>
 
-    <div className="max-w-5xl mx-auto py-8 px-4 relative">
+    <div className="max-w-7xl mx-auto py-8 px-4 relative">
       {/* Abstract gradient shapes in background */}
       <div className="absolute top-40 -left-64 w-96 h-96 bg-gradient-to-br from-[#01ccc7]/20 to-[#00a8a4]/20 rounded-full blur-3xl -z-10" />
       <div className="absolute -top-20 -right-32 w-96 h-96 bg-gradient-to-br from-[#E5F9F8]/30 to-[#01ccc7]/20 rounded-full blur-3xl -z-10" />
