@@ -117,32 +117,41 @@ const PricingTable = () => {
       )}
 
       {/* Pricing Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 mb-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 max-w-7xl mx-auto">
         {plans.map((plan, index) => (
-          <Card key={index} className={`relative ${plan.isPopular ? 'border-[#01ccc7] shadow-lg' : 'border-gray-200'} bg-white/80 backdrop-blur-sm flex flex-col h-full`}>
+          <Card 
+            key={index} 
+            className={`relative group transition-all duration-300 hover:scale-105 hover:shadow-2xl ${
+              plan.isPopular 
+                ? 'border-[#01ccc7] shadow-xl ring-2 ring-[#01ccc7]/20' 
+                : 'border-gray-200 hover:border-[#01ccc7]/30'
+            } bg-white/90 backdrop-blur-sm flex flex-col h-full rounded-2xl overflow-hidden ${
+              index >= 3 ? 'lg:col-start-2 lg:max-w-md lg:mx-auto xl:col-start-auto xl:max-w-none xl:mx-0' : ''
+            }`}
+          >
             {plan.isPopular && (
-              <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-[#01ccc7] text-white font-roboto">
+              <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-[#01ccc7] to-[#00a8a4] text-white font-roboto px-4 py-1 rounded-full shadow-lg">
                 Most Popular
               </Badge>
             )}
-            <CardHeader className="text-center pb-4">
-              <CardTitle className="text-xl font-bold text-[#1A1F2C] font-roboto">{plan.name}</CardTitle>
-              <div className="mt-4">
-                <span className="text-4xl font-bold text-[#1A1F2C] font-roboto">
+            <CardHeader className="text-center pb-6 pt-8">
+              <CardTitle className="text-2xl font-bold text-[#1A1F2C] font-roboto mb-2">{plan.name}</CardTitle>
+              <div className="mt-6">
+                <span className="text-5xl font-bold text-[#1A1F2C] font-roboto">
                   ${isAnnual ? plan.annualPrice : plan.monthlyPrice}
                 </span>
-                <span className="text-gray-600 ml-1 font-roboto">
+                <span className="text-gray-600 ml-2 text-lg font-roboto">
                   /{isAnnual ? 'year' : 'month'}
                 </span>
               </div>
             </CardHeader>
-            <CardContent className="pt-0 flex-1 flex flex-col">
-              <ul className="space-y-3 mb-6 flex-1">
+            <CardContent className="pt-0 flex-1 flex flex-col px-8 pb-8">
+              <ul className="space-y-4 mb-8 flex-1">
                 {plan.features.map((feature, featureIndex) => (
                   <li key={featureIndex} className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-[#01ccc7] mt-0.5 flex-shrink-0" />
+                    <Check className="w-5 h-5 text-[#01ccc7] mt-1 flex-shrink-0" />
                     <span 
-                      className={`text-sm font-roboto ${
+                      className={`text-base font-roboto leading-relaxed ${
                         feature.startsWith('*') ? 'text-gray-600 italic' : 'text-gray-700'
                       }`}
                       dangerouslySetInnerHTML={{ 
@@ -153,9 +162,9 @@ const PricingTable = () => {
                 ))}
               </ul>
               <Button 
-                className={`w-full mt-auto font-roboto ${plan.isPopular 
-                  ? 'bg-[#01ccc7] hover:bg-[#00a8a4] text-white' 
-                  : 'bg-white hover:bg-gray-50 text-[#01ccc7] border border-[#01ccc7]'
+                className={`w-full mt-auto font-roboto text-base py-3 rounded-xl transition-all duration-300 ${plan.isPopular 
+                  ? 'bg-gradient-to-r from-[#01ccc7] to-[#00a8a4] hover:from-[#00a8a4] hover:to-[#008a87] text-white shadow-lg hover:shadow-xl' 
+                  : 'bg-white hover:bg-[#01ccc7] text-[#01ccc7] hover:text-white border-2 border-[#01ccc7] shadow-md hover:shadow-lg'
                 }`}
                 asChild
               >
