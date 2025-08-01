@@ -119,7 +119,9 @@ const PricingTable = () => {
       {/* Pricing Table */}
       <div className="bg-white rounded-2xl shadow-xl mb-16">
         {/* Header Section */}
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-0">
+        <div className="grid grid-cols-1 md:grid-cols-6 gap-0">
+          {/* Empty first column for alignment with feature table */}
+          <div className="hidden md:block bg-gray-50 border-b-4 border-gray-300"></div>
           {plans.map((plan, index) => (
             <div 
               key={index}
