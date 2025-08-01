@@ -121,22 +121,22 @@ const PricingTable = () => {
         {/* Header Section */}
         <div className="grid grid-cols-1 md:grid-cols-6 gap-0">
           {/* Empty first column for alignment with feature table */}
-          <div className="hidden md:block bg-gray-50 border-b-4 border-gray-300 border-r border-gray-200 w-1/6"></div>
+          <div className="hidden md:block bg-gray-50 border-b-4 border-gray-300"></div>
           {plans.map((plan, index) => (
             <div 
               key={index}
-              className={`p-6 text-center border-b-4 border-r border-gray-200 w-1/6 ${
+              className={`p-6 text-center border-b-4 ${
                 index === 0 ? 'bg-gray-50 border-gray-300' 
                 : index === 1 ? 'bg-blue-50 border-blue-300'
                 : index === 2 ? 'bg-purple-50 border-purple-300'
                 : index === 3 ? 'bg-gradient-to-b from-[#01ccc7]/5 to-white border-[#01ccc7]'
                 : 'bg-orange-50 border-orange-300'
-              } ${index === 4 ? 'border-r-0' : ''}`}
+              }`}
             >
-              <h3 className="text-xl font-bold text-[#1A1F2C] font-roboto mb-3 text-center">
+              <h3 className="text-xl font-bold text-[#1A1F2C] font-roboto mb-3">
                 {plan.name}
               </h3>
-              <div className="mb-4 text-center">
+              <div className="mb-4">
                 <span className="text-3xl font-bold text-[#1A1F2C] font-roboto">
                   ${isAnnual ? plan.annualPrice : plan.monthlyPrice}
                 </span>
@@ -162,94 +162,94 @@ const PricingTable = () => {
 
         {/* Feature Comparison Table */}
         <div className="overflow-x-auto">
-          <table className="w-full table-fixed">
+          <table className="w-full">
             <tbody>
               {/* Material Generation */}
               <tr className="border-b border-gray-100">
-                <td className="px-4 py-4 font-medium text-gray-900 bg-gray-50 font-roboto text-center w-1/6 border-r border-gray-200">Material Generation</td>
-                <td className="px-4 py-4 text-center text-sm font-roboto w-1/6 border-r border-gray-200">10/month</td>
-                <td className="px-4 py-4 text-center text-sm font-roboto w-1/6 border-r border-gray-200">50/month</td>
-                <td className="px-4 py-4 text-center text-sm font-roboto w-1/6 border-r border-gray-200">Unlimited</td>
-                <td className="px-4 py-4 text-center text-sm bg-[#01ccc7]/5 font-roboto w-1/6 border-r border-gray-200">Unlimited</td>
-                <td className="px-4 py-4 text-center text-sm font-roboto w-1/6">Unlimited</td>
+                <td className="px-6 py-4 font-medium text-gray-900 bg-gray-50 font-roboto">Material Generation</td>
+                <td className="px-6 py-4 text-center text-sm font-roboto">10/month</td>
+                <td className="px-6 py-4 text-center text-sm font-roboto">50/month</td>
+                <td className="px-6 py-4 text-center text-sm font-roboto">Unlimited</td>
+                <td className="px-6 py-4 text-center text-sm bg-[#01ccc7]/5 font-roboto">Unlimited</td>
+                <td className="px-6 py-4 text-center text-sm font-roboto">Unlimited</td>
               </tr>
               
               {/* Storage */}
               <tr className="border-b border-gray-100">
-                <td className="px-4 py-4 font-medium text-gray-900 bg-gray-50 font-roboto text-center w-1/6 border-r border-gray-200">Storage Capacity</td>
-                <td className="px-4 py-4 text-center text-sm font-roboto w-1/6 border-r border-gray-200">Public only</td>
-                <td className="px-4 py-4 text-center text-sm font-roboto w-1/6 border-r border-gray-200">Private library</td>
-                <td className="px-4 py-4 text-center text-sm font-roboto w-1/6 border-r border-gray-200">250 materials</td>
-                <td className="px-4 py-4 text-center text-sm bg-[#01ccc7]/5 font-roboto w-1/6 border-r border-gray-200">500 materials</td>
-                <td className="px-4 py-4 text-center text-sm font-roboto w-1/6">2000 materials</td>
+                <td className="px-6 py-4 font-medium text-gray-900 bg-gray-50 font-roboto">Storage Capacity</td>
+                <td className="px-6 py-4 text-center text-sm font-roboto">Public only</td>
+                <td className="px-6 py-4 text-center text-sm font-roboto">Private library</td>
+                <td className="px-6 py-4 text-center text-sm font-roboto">250 materials</td>
+                <td className="px-6 py-4 text-center text-sm bg-[#01ccc7]/5 font-roboto">500 materials</td>
+                <td className="px-6 py-4 text-center text-sm font-roboto">2000 materials</td>
               </tr>
 
               {/* Workspace */}
               <tr className="border-b border-gray-100">
-                <td className="px-4 py-4 font-medium text-gray-900 bg-gray-50 font-roboto text-center w-1/6 border-r border-gray-200">Workspace</td>
-                <td className="px-4 py-4 text-center w-1/6 border-r border-gray-200">
+                <td className="px-6 py-4 font-medium text-gray-900 bg-gray-50 font-roboto">Workspace</td>
+                <td className="px-6 py-4 text-center">
                   <X className="w-4 h-4 text-gray-400 mx-auto" />
                 </td>
-                <td className="px-4 py-4 text-center w-1/6 border-r border-gray-200">
+                <td className="px-6 py-4 text-center">
                   <X className="w-4 h-4 text-gray-400 mx-auto" />
                 </td>
-                <td className="px-4 py-4 text-center w-1/6 border-r border-gray-200">
+                <td className="px-6 py-4 text-center">
                   <X className="w-4 h-4 text-gray-400 mx-auto" />
                 </td>
-                <td className="px-4 py-4 text-center bg-[#01ccc7]/5 w-1/6 border-r border-gray-200">
+                <td className="px-6 py-4 text-center bg-[#01ccc7]/5">
                   <span className="text-xs font-roboto text-gray-600">Limited</span>
                 </td>
-                <td className="px-4 py-4 text-center w-1/6">
+                <td className="px-6 py-4 text-center">
                   <span className="text-xs font-roboto text-gray-600">Advanced</span>
                 </td>
               </tr>
 
               {/* Collaboration */}
               <tr className="border-b border-gray-100">
-                <td className="px-4 py-4 font-medium text-gray-900 bg-gray-50 font-roboto text-center w-1/6 border-r border-gray-200">Team Collaboration</td>
-                <td className="px-4 py-4 text-center w-1/6 border-r border-gray-200">
+                <td className="px-6 py-4 font-medium text-gray-900 bg-gray-50 font-roboto">Team Collaboration</td>
+                <td className="px-6 py-4 text-center">
                   <X className="w-4 h-4 text-gray-400 mx-auto" />
                 </td>
-                <td className="px-4 py-4 text-center w-1/6 border-r border-gray-200">
+                <td className="px-6 py-4 text-center">
                   <X className="w-4 h-4 text-gray-400 mx-auto" />
                 </td>
-                <td className="px-4 py-4 text-center w-1/6 border-r border-gray-200">
+                <td className="px-6 py-4 text-center">
                   <X className="w-4 h-4 text-gray-400 mx-auto" />
                 </td>
-                <td className="px-4 py-4 text-center bg-[#01ccc7]/5 w-1/6 border-r border-gray-200">
+                <td className="px-6 py-4 text-center bg-[#01ccc7]/5">
                   <X className="w-4 h-4 text-gray-400 mx-auto" />
                 </td>
-                <td className="px-4 py-4 text-center w-1/6">
+                <td className="px-6 py-4 text-center">
                   <Check className="w-4 h-4 text-green-500 mx-auto" />
                 </td>
               </tr>
 
               {/* Support */}
               <tr className="border-b border-gray-100">
-                <td className="px-4 py-4 font-medium text-gray-900 bg-gray-50 font-roboto text-center w-1/6 border-r border-gray-200">Support</td>
-                <td className="px-4 py-4 text-center text-xs font-roboto w-1/6 border-r border-gray-200">Community</td>
-                <td className="px-4 py-4 text-center text-xs font-roboto w-1/6 border-r border-gray-200">Email</td>
-                <td className="px-4 py-4 text-center text-xs font-roboto w-1/6 border-r border-gray-200">Email</td>
-                <td className="px-4 py-4 text-center text-xs bg-[#01ccc7]/5 font-roboto w-1/6 border-r border-gray-200">Priority</td>
-                <td className="px-4 py-4 text-center text-xs font-roboto w-1/6">Dedicated Manager</td>
+                <td className="px-6 py-4 font-medium text-gray-900 bg-gray-50 font-roboto">Support</td>
+                <td className="px-6 py-4 text-center text-xs font-roboto">Community</td>
+                <td className="px-6 py-4 text-center text-xs font-roboto">Email</td>
+                <td className="px-6 py-4 text-center text-xs font-roboto">Email</td>
+                <td className="px-6 py-4 text-center text-xs bg-[#01ccc7]/5 font-roboto">Priority</td>
+                <td className="px-6 py-4 text-center text-xs font-roboto">Dedicated Manager</td>
               </tr>
 
               {/* Advanced Features */}
               <tr>
-                <td className="px-4 py-4 font-medium text-gray-900 bg-gray-50 font-roboto text-center w-1/6 border-r border-gray-200">Advanced Tools</td>
-                <td className="px-4 py-4 text-center w-1/6 border-r border-gray-200">
+                <td className="px-6 py-4 font-medium text-gray-900 bg-gray-50 font-roboto">Advanced Tools</td>
+                <td className="px-6 py-4 text-center">
                   <X className="w-4 h-4 text-gray-400 mx-auto" />
                 </td>
-                <td className="px-4 py-4 text-center w-1/6 border-r border-gray-200">
+                <td className="px-6 py-4 text-center">
                   <X className="w-4 h-4 text-gray-400 mx-auto" />
                 </td>
-                <td className="px-4 py-4 text-center w-1/6 border-r border-gray-200">
+                <td className="px-6 py-4 text-center">
                   <X className="w-4 h-4 text-gray-400 mx-auto" />
                 </td>
-                <td className="px-4 py-4 text-center bg-[#01ccc7]/5 w-1/6 border-r border-gray-200">
+                <td className="px-6 py-4 text-center bg-[#01ccc7]/5">
                   <X className="w-4 h-4 text-gray-400 mx-auto" />
                 </td>
-                <td className="px-4 py-4 text-center w-1/6">
+                <td className="px-6 py-4 text-center">
                   <Check className="w-4 h-4 text-green-500 mx-auto" />
                 </td>
               </tr>
