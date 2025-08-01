@@ -1,5 +1,5 @@
 
-import { Check } from "lucide-react";
+import { Check, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -116,53 +116,43 @@ const PricingTable = () => {
         </div>
       )}
 
-      {/* Pricing Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-16">
-        {plans.map((plan, index) => (
-          <Card 
-            key={index} 
-            className={`relative ${
-              plan.isPopular 
-                ? 'border-[#01ccc7] shadow-lg ring-2 ring-[#01ccc7]/20' 
-                : 'border-gray-200'
-            } bg-white/90 backdrop-blur-sm flex flex-col h-full`}
-          >
-            {plan.isPopular && (
-              <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-[#01ccc7] to-[#00a8a4] text-white font-roboto px-4 py-1 rounded-full shadow-lg">
-                Most Popular
-              </Badge>
-            )}
-            <CardHeader className="text-center pb-6 pt-8">
-              <CardTitle className="text-2xl font-bold text-[#1A1F2C] font-roboto mb-2">{plan.name}</CardTitle>
-              <div className="mt-6">
-                <span className="text-5xl font-bold text-[#1A1F2C] font-roboto">
+      {/* Pricing Table */}
+      <div className="bg-white rounded-2xl shadow-xl overflow-hidden mb-16">
+        {/* Header Section */}
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-0">
+          {plans.map((plan, index) => (
+            <div 
+              key={index}
+              className={`p-6 text-center border-b-4 ${
+                plan.isPopular 
+                  ? 'bg-gradient-to-b from-[#01ccc7]/5 to-white border-[#01ccc7] relative' 
+                  : index === 0 ? 'bg-gray-50 border-gray-300' 
+                  : index === 1 ? 'bg-blue-50 border-blue-300'
+                  : index === 2 ? 'bg-purple-50 border-purple-300'
+                  : 'bg-orange-50 border-orange-300'
+              }`}
+            >
+              {plan.isPopular && (
+                <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-[#01ccc7] to-[#00a8a4] text-white font-roboto px-3 py-1 rounded-full shadow-lg text-xs">
+                  Most Popular
+                </Badge>
+              )}
+              <h3 className="text-xl font-bold text-[#1A1F2C] font-roboto mb-3">
+                {plan.name}
+              </h3>
+              <div className="mb-4">
+                <span className="text-3xl font-bold text-[#1A1F2C] font-roboto">
                   ${isAnnual ? plan.annualPrice : plan.monthlyPrice}
                 </span>
-                <span className="text-gray-600 ml-2 text-lg font-roboto">
+                <span className="text-gray-600 text-sm block font-roboto">
                   /{isAnnual ? 'year' : 'month'}
                 </span>
               </div>
-            </CardHeader>
-            <CardContent className="pt-0 flex-1 flex flex-col px-8 pb-8">
-              <ul className="space-y-4 mb-8 flex-1">
-                {plan.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-[#01ccc7] mt-1 flex-shrink-0" />
-                    <span 
-                      className={`text-base font-roboto leading-relaxed ${
-                        feature.startsWith('*') ? 'text-gray-600 italic' : 'text-gray-700'
-                      }`}
-                      dangerouslySetInnerHTML={{ 
-                        __html: feature.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') 
-                      }}
-                    />
-                  </li>
-                ))}
-              </ul>
               <Button 
-                className={`w-full mt-auto font-roboto text-base py-3 rounded-xl transition-all duration-300 ${plan.isPopular 
-                  ? 'bg-gradient-to-r from-[#01ccc7] to-[#00a8a4] hover:from-[#00a8a4] hover:to-[#008a87] text-white shadow-lg hover:shadow-xl' 
-                  : 'bg-white hover:bg-[#01ccc7] text-[#01ccc7] hover:text-white border-2 border-[#01ccc7] shadow-md hover:shadow-lg'
+                className={`w-full font-roboto font-semibold py-2 text-sm transition-all duration-300 ${
+                  plan.isPopular 
+                    ? 'bg-gradient-to-r from-[#01ccc7] to-[#00a8a4] hover:from-[#00a8a4] hover:to-[#008a87] text-white shadow-lg hover:shadow-xl' 
+                    : 'bg-white hover:bg-gray-50 text-[#01ccc7] border border-[#01ccc7] hover:border-[#00a8a4]'
                 }`}
                 asChild
               >
@@ -170,9 +160,106 @@ const PricingTable = () => {
                   {plan.buttonText}
                 </a>
               </Button>
-            </CardContent>
-          </Card>
-        ))}
+            </div>
+          ))}
+        </div>
+
+        {/* Feature Comparison Table */}
+        <div className="overflow-x-auto">
+          <table className="w-full">
+            <tbody>
+              {/* Material Generation */}
+              <tr className="border-b border-gray-100">
+                <td className="px-6 py-4 font-medium text-gray-900 bg-gray-50 font-roboto">Material Generation</td>
+                <td className="px-6 py-4 text-center text-sm font-roboto">10/month</td>
+                <td className="px-6 py-4 text-center text-sm font-roboto">50/month</td>
+                <td className="px-6 py-4 text-center text-sm font-roboto">Unlimited</td>
+                <td className="px-6 py-4 text-center text-sm bg-[#01ccc7]/5 font-roboto">Unlimited</td>
+                <td className="px-6 py-4 text-center text-sm font-roboto">Unlimited</td>
+              </tr>
+              
+              {/* Storage */}
+              <tr className="border-b border-gray-100">
+                <td className="px-6 py-4 font-medium text-gray-900 bg-gray-50 font-roboto">Storage Capacity</td>
+                <td className="px-6 py-4 text-center text-sm font-roboto">Public only</td>
+                <td className="px-6 py-4 text-center text-sm font-roboto">Private library</td>
+                <td className="px-6 py-4 text-center text-sm font-roboto">250 materials</td>
+                <td className="px-6 py-4 text-center text-sm bg-[#01ccc7]/5 font-roboto">500 materials</td>
+                <td className="px-6 py-4 text-center text-sm font-roboto">2000 materials</td>
+              </tr>
+
+              {/* Workspace */}
+              <tr className="border-b border-gray-100">
+                <td className="px-6 py-4 font-medium text-gray-900 bg-gray-50 font-roboto">Workspace</td>
+                <td className="px-6 py-4 text-center">
+                  <X className="w-4 h-4 text-gray-400 mx-auto" />
+                </td>
+                <td className="px-6 py-4 text-center">
+                  <X className="w-4 h-4 text-gray-400 mx-auto" />
+                </td>
+                <td className="px-6 py-4 text-center">
+                  <X className="w-4 h-4 text-gray-400 mx-auto" />
+                </td>
+                <td className="px-6 py-4 text-center bg-[#01ccc7]/5">
+                  <span className="text-xs font-roboto text-gray-600">Limited</span>
+                </td>
+                <td className="px-6 py-4 text-center">
+                  <span className="text-xs font-roboto text-gray-600">Advanced</span>
+                </td>
+              </tr>
+
+              {/* Collaboration */}
+              <tr className="border-b border-gray-100">
+                <td className="px-6 py-4 font-medium text-gray-900 bg-gray-50 font-roboto">Team Collaboration</td>
+                <td className="px-6 py-4 text-center">
+                  <X className="w-4 h-4 text-gray-400 mx-auto" />
+                </td>
+                <td className="px-6 py-4 text-center">
+                  <X className="w-4 h-4 text-gray-400 mx-auto" />
+                </td>
+                <td className="px-6 py-4 text-center">
+                  <X className="w-4 h-4 text-gray-400 mx-auto" />
+                </td>
+                <td className="px-6 py-4 text-center bg-[#01ccc7]/5">
+                  <X className="w-4 h-4 text-gray-400 mx-auto" />
+                </td>
+                <td className="px-6 py-4 text-center">
+                  <Check className="w-4 h-4 text-green-500 mx-auto" />
+                </td>
+              </tr>
+
+              {/* Support */}
+              <tr className="border-b border-gray-100">
+                <td className="px-6 py-4 font-medium text-gray-900 bg-gray-50 font-roboto">Support</td>
+                <td className="px-6 py-4 text-center text-xs font-roboto">Community</td>
+                <td className="px-6 py-4 text-center text-xs font-roboto">Email</td>
+                <td className="px-6 py-4 text-center text-xs font-roboto">Email</td>
+                <td className="px-6 py-4 text-center text-xs bg-[#01ccc7]/5 font-roboto">Priority</td>
+                <td className="px-6 py-4 text-center text-xs font-roboto">Dedicated Manager</td>
+              </tr>
+
+              {/* Advanced Features */}
+              <tr>
+                <td className="px-6 py-4 font-medium text-gray-900 bg-gray-50 font-roboto">Advanced Tools</td>
+                <td className="px-6 py-4 text-center">
+                  <X className="w-4 h-4 text-gray-400 mx-auto" />
+                </td>
+                <td className="px-6 py-4 text-center">
+                  <X className="w-4 h-4 text-gray-400 mx-auto" />
+                </td>
+                <td className="px-6 py-4 text-center">
+                  <X className="w-4 h-4 text-gray-400 mx-auto" />
+                </td>
+                <td className="px-6 py-4 text-center bg-[#01ccc7]/5">
+                  <X className="w-4 h-4 text-gray-400 mx-auto" />
+                </td>
+                <td className="px-6 py-4 text-center">
+                  <Check className="w-4 h-4 text-green-500 mx-auto" />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
       {/* Feature Grid */}
