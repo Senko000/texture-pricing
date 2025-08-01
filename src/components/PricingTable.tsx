@@ -15,21 +15,50 @@ const plans = [
     monthlyPrice: 0,
     annualPrice: 0,
     features: [
-      "Essential Textura features",
+      "Textura features",
       "Generate, store & download up to 10 materials/month", 
-      "Materials created in the Free plan are visible to others. Upgrade to protect your content"
+      "Materials created in the Free plan are visible to others. **Upgrade** to protect your content"
     ],
     buttonText: "Start Free",
+    buttonUrl: "https://app.textura.ai/login"
+  },
+  {
+    name: "Student",
+    monthlyPrice: 25,
+    annualPrice: 250,
+    features: [
+      "Essential Textura features",
+      "Generate and download up to 50 materials per month",
+      "Private library",
+      "*must sign up with Student credentials"
+    ],
+    buttonText: "Upgrade to Student",
+    buttonUrl: "https://app.textura.ai/login",
+    hasNote: true
+  },
+  {
+    name: "Core",
+    monthlyPrice: 350,
+    annualPrice: 3500,
+    features: [
+      "Essential Textura features",
+      "Unlimited material creation",
+      "Store up to 250 materials at once",
+      "Private material library"
+    ],
+    buttonText: "Upgrade to Core",
     buttonUrl: "https://app.textura.ai/login"
   },
   {
     name: "Standard",
     monthlyPrice: 500,
     annualPrice: 5000,
+    isPopular: true,
     features: [
+      "Limited internal workspace",
       "Essential Textura features",
       "Unlimited material creation",
-      "Store up to 500 materials",
+      "Store up to 500 at once",
       "Private material library",
       "Priority support"
     ],
@@ -40,13 +69,12 @@ const plans = [
     name: "Enterprise",
     monthlyPrice: 800,
     annualPrice: 8000,
-    isPopular: true,
     features: [
-      "Essential Textura features",
-      "Personalized team folders to enhance workspace collaboration",
-      "Batch upload fabric scans and digital materials",
-      "Advanced recoloring including heathered fabric tools",
-      "Supplier/tiling team collections",
+      "Advanced internal workspace",
+      "Multi mill and brand collaboration",
+      "Batch upload scans and digital files",
+      "Advanced recoloring, including weathered fabric tools",
+      "Team and Supplier shareable collections",
       "Store up to 2000 materials",
       "Dedicated account manager"
     ],
@@ -89,7 +117,7 @@ const PricingTable = () => {
       )}
 
       {/* Pricing Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 mb-16">
         {plans.map((plan, index) => (
           <Card key={index} className={`relative ${plan.isPopular ? 'border-[#01ccc7] shadow-lg' : 'border-gray-200'} bg-white/80 backdrop-blur-sm flex flex-col h-full`}>
             {plan.isPopular && (
@@ -113,7 +141,14 @@ const PricingTable = () => {
                 {plan.features.map((feature, featureIndex) => (
                   <li key={featureIndex} className="flex items-start gap-3">
                     <Check className="w-5 h-5 text-[#01ccc7] mt-0.5 flex-shrink-0" />
-                    <span className="text-sm text-gray-700 font-roboto">{feature}</span>
+                    <span 
+                      className={`text-sm font-roboto ${
+                        feature.startsWith('*') ? 'text-gray-600 italic' : 'text-gray-700'
+                      }`}
+                      dangerouslySetInnerHTML={{ 
+                        __html: feature.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') 
+                      }}
+                    />
                   </li>
                 ))}
               </ul>
