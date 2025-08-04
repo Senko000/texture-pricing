@@ -1,5 +1,5 @@
 
-import { Check, X } from "lucide-react";
+import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -15,50 +15,21 @@ const plans = [
     monthlyPrice: 0,
     annualPrice: 0,
     features: [
-      "Textura features",
+      "Essential Textura features",
       "Generate, store & download up to 10 materials/month", 
-      "Materials created in the Free plan are visible to others. **Upgrade** to protect your content"
+      "Materials created in the Free plan are visible to others. Upgrade to protect your content"
     ],
     buttonText: "Start Free",
-    buttonUrl: "https://app.textura.ai/login"
-  },
-  {
-    name: "Student",
-    monthlyPrice: 25,
-    annualPrice: 250,
-    features: [
-      "Essential Textura features",
-      "Generate and download up to 50 materials per month",
-      "Private library",
-      "*must sign up with Student credentials"
-    ],
-    buttonText: "Upgrade to Student",
-    buttonUrl: "https://app.textura.ai/login",
-    hasNote: true
-  },
-  {
-    name: "Core",
-    monthlyPrice: 350,
-    annualPrice: 3500,
-    features: [
-      "Essential Textura features",
-      "Unlimited material creation",
-      "Store up to 250 materials at once",
-      "Private material library"
-    ],
-    buttonText: "Upgrade to Core",
     buttonUrl: "https://app.textura.ai/login"
   },
   {
     name: "Standard",
     monthlyPrice: 500,
     annualPrice: 5000,
-    isPopular: true,
     features: [
-      "Limited internal workspace",
       "Essential Textura features",
       "Unlimited material creation",
-      "Store up to 500 at once",
+      "Store up to 500 materials",
       "Private material library",
       "Priority support"
     ],
@@ -69,12 +40,13 @@ const plans = [
     name: "Enterprise",
     monthlyPrice: 800,
     annualPrice: 8000,
+    isPopular: true,
     features: [
-      "Advanced internal workspace",
-      "Multi mill and brand collaboration",
-      "Batch upload scans and digital files",
-      "Advanced recoloring, including weathered fabric tools",
-      "Team and Supplier shareable collections",
+      "Essential Textura features",
+      "Personalized team folders to enhance workspace collaboration",
+      "Batch upload fabric scans and digital materials",
+      "Advanced recoloring including heathered fabric tools",
+      "Supplier/tiling team collections",
       "Store up to 2000 materials",
       "Dedicated account manager"
     ],
@@ -116,39 +88,39 @@ const PricingTable = () => {
         </div>
       )}
 
-      {/* Pricing Table */}
-      <div className="bg-white rounded-2xl shadow-xl mb-16">
-        {/* Header Section */}
-        <div className="grid grid-cols-1 md:grid-cols-6 gap-0">
-          {/* Empty first column for alignment with feature table */}
-          <div className="hidden md:block bg-gray-50 border-b-4 border-gray-300"></div>
-          {plans.map((plan, index) => (
-            <div 
-              key={index}
-              className={`p-6 text-center border-b-4 ${
-                index === 0 ? 'bg-gray-50 border-gray-300' 
-                : index === 1 ? 'bg-blue-50 border-blue-300'
-                : index === 2 ? 'bg-purple-50 border-purple-300'
-                : index === 3 ? 'bg-gradient-to-b from-[#01ccc7]/5 to-white border-[#01ccc7]'
-                : 'bg-orange-50 border-orange-300'
-              }`}
-            >
-              <h3 className="text-xl font-bold text-[#1A1F2C] font-roboto mb-3">
-                {plan.name}
-              </h3>
-              <div className="mb-4">
-                <span className="text-3xl font-bold text-[#1A1F2C] font-roboto">
+      {/* Pricing Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        {plans.map((plan, index) => (
+          <Card key={index} className={`relative ${plan.isPopular ? 'border-[#01ccc7] shadow-lg' : 'border-gray-200'} bg-white/80 backdrop-blur-sm flex flex-col h-full`}>
+            {plan.isPopular && (
+              <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-[#01ccc7] text-white font-roboto">
+                Most Popular
+              </Badge>
+            )}
+            <CardHeader className="text-center pb-4">
+              <CardTitle className="text-xl font-bold text-[#1A1F2C] font-roboto">{plan.name}</CardTitle>
+              <div className="mt-4">
+                <span className="text-4xl font-bold text-[#1A1F2C] font-roboto">
                   ${isAnnual ? plan.annualPrice : plan.monthlyPrice}
                 </span>
-                <span className="text-gray-600 text-sm block font-roboto">
+                <span className="text-gray-600 ml-1 font-roboto">
                   /{isAnnual ? 'year' : 'month'}
                 </span>
               </div>
+            </CardHeader>
+            <CardContent className="pt-0 flex-1 flex flex-col">
+              <ul className="space-y-3 mb-6 flex-1">
+                {plan.features.map((feature, featureIndex) => (
+                  <li key={featureIndex} className="flex items-start gap-3">
+                    <Check className="w-5 h-5 text-[#01ccc7] mt-0.5 flex-shrink-0" />
+                    <span className="text-sm text-gray-700 font-roboto">{feature}</span>
+                  </li>
+                ))}
+              </ul>
               <Button 
-                className={`w-full font-roboto font-semibold py-2 px-4 text-sm transition-all duration-300 ${
-                  index === 3 
-                    ? 'bg-gradient-to-r from-[#01ccc7] to-[#00a8a4] hover:from-[#00a8a4] hover:to-[#008a87] text-white shadow-lg hover:shadow-xl' 
-                    : 'bg-white hover:bg-gray-50 text-[#01ccc7] border border-[#01ccc7] hover:border-[#00a8a4]'
+                className={`w-full mt-auto font-roboto ${plan.isPopular 
+                  ? 'bg-[#01ccc7] hover:bg-[#00a8a4] text-white' 
+                  : 'bg-white hover:bg-gray-50 text-[#01ccc7] border border-[#01ccc7]'
                 }`}
                 asChild
               >
@@ -156,106 +128,9 @@ const PricingTable = () => {
                   {plan.buttonText}
                 </a>
               </Button>
-            </div>
-          ))}
-        </div>
-
-        {/* Feature Comparison Table */}
-        <div className="overflow-x-auto">
-          <table className="w-full">
-            <tbody>
-              {/* Material Generation */}
-              <tr className="border-b border-gray-100">
-                <td className="px-6 py-4 font-medium text-gray-900 bg-gray-50 font-roboto">Material Generation</td>
-                <td className="px-6 py-4 text-center text-sm font-roboto">10/month</td>
-                <td className="px-6 py-4 text-center text-sm font-roboto">50/month</td>
-                <td className="px-6 py-4 text-center text-sm font-roboto">Unlimited</td>
-                <td className="px-6 py-4 text-center text-sm bg-[#01ccc7]/5 font-roboto">Unlimited</td>
-                <td className="px-6 py-4 text-center text-sm font-roboto">Unlimited</td>
-              </tr>
-              
-              {/* Storage */}
-              <tr className="border-b border-gray-100">
-                <td className="px-6 py-4 font-medium text-gray-900 bg-gray-50 font-roboto">Storage Capacity</td>
-                <td className="px-6 py-4 text-center text-sm font-roboto">Public only</td>
-                <td className="px-6 py-4 text-center text-sm font-roboto">Private library</td>
-                <td className="px-6 py-4 text-center text-sm font-roboto">250 materials</td>
-                <td className="px-6 py-4 text-center text-sm bg-[#01ccc7]/5 font-roboto">500 materials</td>
-                <td className="px-6 py-4 text-center text-sm font-roboto">2000 materials</td>
-              </tr>
-
-              {/* Workspace */}
-              <tr className="border-b border-gray-100">
-                <td className="px-6 py-4 font-medium text-gray-900 bg-gray-50 font-roboto">Workspace</td>
-                <td className="px-6 py-4 text-center">
-                  <X className="w-4 h-4 text-gray-400 mx-auto" />
-                </td>
-                <td className="px-6 py-4 text-center">
-                  <X className="w-4 h-4 text-gray-400 mx-auto" />
-                </td>
-                <td className="px-6 py-4 text-center">
-                  <X className="w-4 h-4 text-gray-400 mx-auto" />
-                </td>
-                <td className="px-6 py-4 text-center bg-[#01ccc7]/5">
-                  <span className="text-xs font-roboto text-gray-600">Limited</span>
-                </td>
-                <td className="px-6 py-4 text-center">
-                  <span className="text-xs font-roboto text-gray-600">Advanced</span>
-                </td>
-              </tr>
-
-              {/* Collaboration */}
-              <tr className="border-b border-gray-100">
-                <td className="px-6 py-4 font-medium text-gray-900 bg-gray-50 font-roboto">Team Collaboration</td>
-                <td className="px-6 py-4 text-center">
-                  <X className="w-4 h-4 text-gray-400 mx-auto" />
-                </td>
-                <td className="px-6 py-4 text-center">
-                  <X className="w-4 h-4 text-gray-400 mx-auto" />
-                </td>
-                <td className="px-6 py-4 text-center">
-                  <X className="w-4 h-4 text-gray-400 mx-auto" />
-                </td>
-                <td className="px-6 py-4 text-center bg-[#01ccc7]/5">
-                  <X className="w-4 h-4 text-gray-400 mx-auto" />
-                </td>
-                <td className="px-6 py-4 text-center">
-                  <Check className="w-4 h-4 text-green-500 mx-auto" />
-                </td>
-              </tr>
-
-              {/* Support */}
-              <tr className="border-b border-gray-100">
-                <td className="px-6 py-4 font-medium text-gray-900 bg-gray-50 font-roboto">Support</td>
-                <td className="px-6 py-4 text-center text-xs font-roboto">Community</td>
-                <td className="px-6 py-4 text-center text-xs font-roboto">Email</td>
-                <td className="px-6 py-4 text-center text-xs font-roboto">Email</td>
-                <td className="px-6 py-4 text-center text-xs bg-[#01ccc7]/5 font-roboto">Priority</td>
-                <td className="px-6 py-4 text-center text-xs font-roboto">Dedicated Manager</td>
-              </tr>
-
-              {/* Advanced Features */}
-              <tr>
-                <td className="px-6 py-4 font-medium text-gray-900 bg-gray-50 font-roboto">Advanced Tools</td>
-                <td className="px-6 py-4 text-center">
-                  <X className="w-4 h-4 text-gray-400 mx-auto" />
-                </td>
-                <td className="px-6 py-4 text-center">
-                  <X className="w-4 h-4 text-gray-400 mx-auto" />
-                </td>
-                <td className="px-6 py-4 text-center">
-                  <X className="w-4 h-4 text-gray-400 mx-auto" />
-                </td>
-                <td className="px-6 py-4 text-center bg-[#01ccc7]/5">
-                  <X className="w-4 h-4 text-gray-400 mx-auto" />
-                </td>
-                <td className="px-6 py-4 text-center">
-                  <Check className="w-4 h-4 text-green-500 mx-auto" />
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+            </CardContent>
+          </Card>
+        ))}
       </div>
 
       {/* Feature Grid */}
